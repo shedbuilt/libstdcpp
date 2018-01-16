@@ -1,7 +1,11 @@
 #!/bin/bash
 if [ "$SHED_BUILDMODE" != 'toolchain' ]; then
-    echo "This package cannot be built in this build mode: $SHED_BUILDMODE"
-    return 1
+    echo "This package cannot be built in this build mode: '$SHED_BUILDMODE'"
+    exit 1
+fi
+if [ "$SHED_HOST" != 'toolchain' ]; then
+    echo "This package cannot be built with this host: '$SHED_HOST'"
+    exit 1
 fi
 mkdir -v build
 cd build
