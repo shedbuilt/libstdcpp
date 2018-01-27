@@ -16,6 +16,6 @@ cd build
     --disable-nls                   \
     --disable-libstdcxx-threads     \
     --disable-libstdcxx-pch         \
-    --with-gxx-include-dir=/tools/${SHED_TOOLCHAIN_TARGET}/include/c++/7.2.0 || exit 1
-make -j $SHED_NUMJOBS || exit 1
+    --with-gxx-include-dir=/tools/${SHED_TOOLCHAIN_TARGET}/include/c++/7.3.0 && \
+make -j $SHED_NUMJOBS && \
 make DESTDIR="$SHED_FAKEROOT" install || exit 1 
